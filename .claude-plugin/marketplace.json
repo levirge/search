@@ -1,0 +1,17 @@
+{
+    "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+    "name": "levirge-search",
+    "description": "Search command pack for the Levirge Search MCP connector.",
+    "owner": {
+        "name": "Levirge",
+        "url": "https://levirge.com"
+    },
+    "plugins": [
+        {
+            "name": "search",
+            "description": "Slash commands wrapping the Levirge Search MCP tools (search, fetch, stealth_list, stealth_add). Invoke as /search:research, /search:fetch, /search:stealth.",
+            "source": "./plugins/search",
+            "category": "research"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "name": "search",
+    "version": "0.4.0",
+    "description": "Web research slash commands for the Levirge Search MCP server \u2014 multi-query research, routed fetch (auto-stealth), and stealth-registry management.",
+    "author": {
+        "name": "Levirge",
+        "url": "https://levirge.com"
+    },
+    "userConfig": {
+        "token": {
+            "type": "string",
+            "title": "API token",
+            "description": "Optional bearer token for Levirge Search. Leave blank for anonymous access.",
+            "sensitive": true,
+            "required": false
+        }
+    }
+}
