@@ -18,4 +18,7 @@ e.g. `select=["ahead_by", "commits[].sha", "commits[].commit.message"]` — dot 
 wildcards. `max_bytes` caps a large text body. A JSON body is returned verbatim in its own content
 block, so it parses directly.
 
+A YouTube watch/shorts/youtu.be URL returns the video's title, channel, description, and full
+timestamped transcript as markdown — summarize the transcript, don't dump it.
+
 If the fetch fails outright, report the error as-is — don't retry with made-up URL variants.
