@@ -1,7 +1,7 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "search",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
@@ -15,18 +15,5 @@
         "research",
         "fetch",
         "mcp"
-    ],
-    "extensions": {
-        "com.anthropic.claude-code": {
-            "userConfig": {
-                "token": {
-                    "type": "string",
-                    "title": "API token",
-                    "description": "Optional bearer token for Levirge Search. Leave blank for anonymous access.",
-                    "sensitive": true,
-                    "required": false
-                }
-            }
-        }
-    }
+    ]
 }

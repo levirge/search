@@ -1,6 +1,6 @@
 {
     "name": "search",
-    "version": "0.8.0",
+    "version": "0.8.1",
     "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
@@ -16,9 +16,23 @@
         "stealth",
         "mcp"
     ],
+    "mcpServers": "./.mcp.json",
     "interface": {
         "displayName": "Levirge Search",
         "shortDescription": "Web search and bot-resistant fetch for agents",
+        "longDescription": "Search the public web, fetch source pages, and automatically escalate bot-resistant sites through Levirge Search's managed stealth browser.",
+        "developerName": "Levirge",
+        "category": "Research",
+        "capabilities": [
+            "Web search",
+            "Web fetch",
+            "Stealth routing"
+        ],
+        "defaultPrompt": [
+            "Research this topic using multiple independent sources.",
+            "Fetch and summarize this URL.",
+            "Check whether this site needs stealth fetching."
+        ],
         "logo": "./assets/logo.png",
         "logoDark": "./assets/logo-dark.png",
         "composerIcon": "./assets/icon.png"

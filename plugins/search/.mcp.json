@@ -2,8 +2,7 @@
     "mcpServers": {
         "search": {
             "type": "http",
-            "url": "https://search.levirge.com/mcp",
-            "headers": { "Authorization": "Bearer ${user_config.token}" }
+            "url": "https://search.levirge.com/mcp"
         }
     }
 }
