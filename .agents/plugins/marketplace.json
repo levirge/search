@@ -6,7 +6,9 @@
             "name": "search",
             "description": "Slash commands wrapping the Levirge Search MCP tools (search, fetch, stealth_list, stealth_add). Invoke as /search:research, /search:fetch, /search:stealth.",
             "source": { "source": "local", "path": "./plugins/search" },
-            "category": "Research"
+            "category": "Research",
+            "homepage": "https://search.levirge.com",
+            "repository": "https://github.com/levirge/search"
         }
     ]
 }

@@ -1,16 +1,21 @@
 {
+    "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
     "name": "search",
-    "version": "0.6.0",
-    "description": "Web research slash commands for the Levirge Search MCP server \u2014 multi-query research, routed fetch (auto-stealth), and stealth-registry management.",
+    "displayName": "Levirge Search",
+    "version": "0.7.0",
+    "description": "Web research slash commands for the Levirge Search MCP server — multi-query research, routed fetch (auto-stealth), and stealth-registry management.",
     "author": {
         "name": "Levirge",
         "url": "https://levirge.com"
     },
+    "homepage": "https://search.levirge.com",
+    "repository": "https://github.com/levirge/search",
+    "keywords": ["search", "web", "research", "fetch", "stealth", "mcp"],
     "userConfig": {
         "token": {
             "type": "string",
             "title": "API token",
-            "description": "Optional bearer token for Levirge Search. Leave blank for anonymous access.",
+            "description": "Bearer token for Levirge Search. Leave blank to sign in with OAuth instead — the server requires authentication either way.",
             "sensitive": true,
             "required": false
         }
