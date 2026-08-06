@@ -2,15 +2,22 @@
     "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
     "name": "search",
     "displayName": "Levirge Search",
-    "version": "0.7.0",
-    "description": "Web research slash commands for the Levirge Search MCP server — multi-query research, routed fetch (auto-stealth), and stealth-registry management.",
+    "version": "0.8.0",
+    "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
         "url": "https://levirge.com"
     },
     "homepage": "https://search.levirge.com",
     "repository": "https://github.com/levirge/search",
-    "keywords": ["search", "web", "research", "fetch", "stealth", "mcp"],
+    "keywords": [
+        "search",
+        "web",
+        "research",
+        "fetch",
+        "stealth",
+        "mcp"
+    ],
     "userConfig": {
         "token": {
             "type": "string",

@@ -1,51 +1,66 @@
-# Levirge Search — Claude plugin
+<p align="left">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/levirge-search-logo-dark.svg">
+    <img src="assets/levirge-search-logo-light.svg" alt="Levirge Search" width="420">
+  </picture>
+</p>
 
-Slash commands and a skill for the [Levirge Search](https://search.levirge.com) MCP server:
-web search via SearXNG, and a routed fetch that falls back to a stealth browser for sites
-that block ordinary crawling.
+# Levirge Search — web research your agent can actually reach
 
-## Install
+**Your agent's built-in fetch has a blocklist. This one doesn't.**
 
-```sh
+Levirge Search is a hosted [MCP](https://modelcontextprotocol.io) server giving agents
+two things their host tools usually can't: unfiltered web search, and a fetch that
+escalates to a stealth browser when a site blocks ordinary crawling. Reddit, X,
+LinkedIn, Medium, Cloudflare-fronted docs — pages your agent currently answers about
+from third-party summaries, read directly instead.
+
+## Install (2 minutes)
+
+Claude Code:
+
+```bash
 claude plugin marketplace add levirge/search
 claude plugin install search@levirge-search
 ```
 
-Then restart the client. The desktop "Add marketplace" dialog accepts `levirge/search` too —
-it only allows github.com, gitlab.com, bitbucket.org and GitHub Enterprise hosts, which is
-why this repo exists rather than the self-hosted marketplace the service also serves.
+Then run `/mcp` in a session and sign in.
 
-### Update
+Codex CLI:
 
-`claude plugin install` does **not** upgrade an already-installed plugin — it prints
-"already installed" and exits. To move to a newer version:
-
-```sh
-claude plugin marketplace update levirge-search
-claude plugin update search@levirge-search
+```bash
+codex plugin add levirge/search
 ```
 
-Restart afterwards. The restart is also what re-pulls the MCP tool list: `.mcp.json` is only
-a pointer at the server, tool schemas are fetched at connect time and cached for the life of
-the connection, so a server-side tool change stays invisible until the client reconnects.
+Any other MCP client — point it at `https://search.levirge.com/mcp`. It answers a
+standard OAuth challenge, so clients that speak MCP authorization discover sign-in on
+their own; no token to paste.
 
-## What's in it
+## What you get
 
-| | |
-| --- | --- |
-| `/search:research` | multi-query search, fetch top hits, synthesise with sources |
-| `/search:fetch` | routed fetch of one URL (auto-stealth) and summarise |
-| `/search:stealth` | list or register stealth-required domains |
-| `web-fetch-fallback` skill | when a URL fetch is refused, escalate to the stealth fetch instead of falling back to search |
+- **Search that isn't a summary** — `search` runs SearXNG across engines and returns
+  real result sets, not one provider's ranking.
+- **Fetch that gets through** — `fetch` takes any URL, including agent-constructed API
+  endpoints, and auto-escalates to a stealth browser on a bot-wall. One tool, both routes.
+- **Background scans** — `fetch_async` queues up to 200 URLs through the same routing and
+  paces them per-domain; collect with `fetch_results` instead of blocking.
+- **A stealth registry that learns** — domains that needed escalation are remembered per
+  tenant, so the second visit skips the retry (`/search:stealth`).
+- **A failure queue worth reading** — `stealth_failures` lists domains where the stealth
+  browser itself got blocked, including regressions on domains that used to work.
+- **A skill that fires on refusal** — `web-fetch-fallback` teaches the agent to reach for
+  this when its primary fetch says "blocked", instead of silently falling back to search.
 
-## Auth
+## Commands
 
-`.mcp.json` points at `https://search.levirge.com/mcp` and passes an optional bearer from the
-plugin's `token` user-config field. Mint one in the app under **Profile → tokens**; leave the
-field blank for anonymous access. The token is shown once and cannot be recovered.
+| Command             | Does                                                     |
+| ------------------- | -------------------------------------------------------- |
+| `/search:research`  | Multi-query search, fetch the top hits, synthesize with sources |
+| `/search:fetch`     | Fetch one URL via routed fetch and summarize it           |
+| `/search:stealth`   | List stealth-required domains, or register one            |
 
-## Source
+## Links
 
-This repo is the published marketplace. The plugin is developed in the `agent-search`
-repository under `plugin/` and copied here — **edit it there**, not here, or the next sync
-will overwrite your change.
+- **App / sign in:** <https://search.levirge.com>
+- **Levirge:** <https://levirge.com>
+- **Plugin reference:** [plugins/search/README.md](plugins/search/README.md)

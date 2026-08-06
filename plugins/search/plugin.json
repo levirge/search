@@ -1,15 +1,21 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "search",
-    "version": "0.7.0",
-    "description": "Web research for the Levirge Search MCP server — multi-query research, routed fetch (auto-stealth), and stealth-registry management.",
+    "version": "0.8.0",
+    "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
         "url": "https://levirge.com"
     },
     "homepage": "https://search.levirge.com",
     "repository": "https://github.com/levirge/search",
-    "keywords": ["search", "web", "research", "fetch", "mcp"],
+    "keywords": [
+        "search",
+        "web",
+        "research",
+        "fetch",
+        "mcp"
+    ],
     "extensions": {
         "com.anthropic.claude-code": {
             "userConfig": {
