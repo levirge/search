@@ -2,7 +2,7 @@
     "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
     "name": "search",
     "displayName": "Levirge Search",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
