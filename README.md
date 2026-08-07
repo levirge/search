@@ -5,6 +5,8 @@
   </picture>
 </p>
 
+[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Fsearch%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](plugins/search/.codex-plugin/plugin.json)
+
 # Levirge Search — web research your agent can actually reach
 
 **Your agent's built-in fetch has a blocklist. This one doesn't.**

@@ -1,5 +1,7 @@
 # Levirge Search plugin
 
+[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Fsearch%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](.codex-plugin/plugin.json)
+
 Slash commands and a skill over the [Levirge Search](https://search.levirge.com) MCP server: web
 search via SearXNG, and a routed fetch that escalates to a stealth browser for sites that block
 ordinary crawling. Commands install as `/search:research`, `/search:fetch`, `/search:stealth`.
@@ -74,7 +76,9 @@ The plugin ships four manifests so it installs cleanly across harnesses:
 | `.claude-plugin/plugin.json` + `.mcp.json` | Claude Code                                                            |
 | `.codex-plugin/plugin.json`                | Codex CLI (carries the `interface` branding block)                     |
 
-`version` is duplicated across the three `plugin.json` files — bump all of them together.
+`version` is duplicated across the three `plugin.json` files — bump all of them together. The
+version badge above reads the `.codex-plugin` copy live from `main`, so it never goes stale, but it
+also won't warn you if the three drift apart.
 
 ## Source
 
