@@ -42,6 +42,8 @@ the answer is to ask the user, not to change tools.
 ## Notes
 
 - Large API responses: pass `select` to extract fields server-side rather than pulling a multi-MB
-  body into context — e.g. `select: ["ahead_by", "commits[].commit.message"]`.
+  body into context — e.g. `select: ["ahead_by", "commits[].commit.message"]`. Unknown shape? Pass
+  `schema: true` first to get a compact inferred schema (select-path keys, types, array lengths),
+  then re-fetch with `select` — the body is cached, so the second call is cheap.
 - A domain only joins the stealth route after a real block. That is deliberate: pinning a domain
   preemptively forces every later fetch through the slower browser path.

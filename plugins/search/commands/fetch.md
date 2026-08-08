@@ -15,8 +15,10 @@ Report back:
 
 For a JSON API, pass `select` to pull only the fields you need rather than reading the whole body,
 e.g. `select=["ahead_by", "commits[].sha", "commits[].commit.message"]` — dot paths with `[]` array
-wildcards. `max_bytes` caps a large text body. A JSON body is returned verbatim in its own content
-block, so it parses directly.
+wildcards. If you don't know what fields exist, pass `schema=true` first — it returns a compact
+inferred schema (keys in select-path form, types, array lengths) instead of the payload; then call
+again with `select` (the body is cached, so the second call is cheap). `max_bytes` caps a large text
+body. A JSON body is returned verbatim in its own content block, so it parses directly.
 
 A YouTube watch/shorts/youtu.be URL returns the video's title, channel, description, and full
 timestamped transcript as markdown — summarize the transcript, don't dump it.
