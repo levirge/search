@@ -42,13 +42,13 @@ the answer is to ask the user, not to change tools.
 ## Notes
 
 - Large API responses: pass `select` to extract fields server-side rather than pulling a multi-MB
-  body into context — e.g. `select: ["ahead_by", "commits[].commit.message"]`. XML APIs and
-  RSS/Atom feeds take the same paths against the parsed tree (attributes prefixed `@`, e.g.
+  body into context — e.g. `select: ["ahead_by", "commits[].commit.message"]`. XML APIs and RSS/Atom
+  feeds take the same paths against the parsed tree (attributes prefixed `@`, e.g.
   `"rss.channel.item[].title"`) and return JSON.
 - Large markdown/text pages: `select` entries act as case-insensitive content patterns — matching
   heading sections return whole; a miss returns the page's heading outline to re-aim with.
-- Unknown shape? Pass `schema: true` first — JSON/XML returns a compact inferred schema
-  (select-path keys, types, array lengths), markdown returns its heading outline; then re-fetch
-  with `select` — the body is cached, so the second call is cheap.
+- Unknown shape? Pass `schema: true` first — JSON/XML returns a compact inferred schema (select-path
+  keys, types, array lengths), markdown returns its heading outline; then re-fetch with `select` —
+  the body is cached, so the second call is cheap.
 - A domain only joins the stealth route after a real block. That is deliberate: pinning a domain
   preemptively forces every later fetch through the slower browser path.
