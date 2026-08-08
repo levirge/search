@@ -15,10 +15,13 @@ Report back:
 
 For a JSON API, pass `select` to pull only the fields you need rather than reading the whole body,
 e.g. `select=["ahead_by", "commits[].sha", "commits[].commit.message"]` — dot paths with `[]` array
-wildcards. If you don't know what fields exist, pass `schema=true` first — it returns a compact
-inferred schema (keys in select-path form, types, array lengths) instead of the payload; then call
-again with `select` (the body is cached, so the second call is cheap). `max_bytes` caps a large text
-body. A JSON body is returned verbatim in its own content block, so it parses directly.
+wildcards. On a markdown/text page, `select` entries are case-insensitive content patterns instead:
+each heading section containing any pattern comes back whole, and a miss returns the document's
+heading outline so you can retry. If you don't know the shape, pass `schema=true` first — a JSON
+body returns a compact inferred schema (keys in select-path form, types, array lengths) and a
+markdown page returns its heading outline; then call again with `select` (the body is cached, so the
+second call is cheap). `max_bytes` caps a large text body. A JSON body is returned verbatim in its
+own content block, so it parses directly.
 
 A YouTube watch/shorts/youtu.be URL returns the video's title, channel, description, and full
 timestamped transcript as markdown — summarize the transcript, don't dump it.
