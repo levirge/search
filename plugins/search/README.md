@@ -27,6 +27,10 @@ claude plugin marketplace update levirge-search
 claude plugin update search@levirge-search
 ```
 
+**Desktop "Update" button greyed out?** It compares against the app's cached marketplace catalog,
+which never refreshes itself, and the dialog has no refresh button. The two commands above fix it —
+the CLI shares the same store as the desktop app — then restart.
+
 Restart afterwards. The restart is also what re-pulls the MCP tool list: `.mcp.json` is only a
 pointer at the server; tool schemas are fetched at connect time and cached for the life of the
 connection, so a server-side tool change stays invisible until the client reconnects.

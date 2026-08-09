@@ -36,6 +36,20 @@ codex plugin add levirge/search
 Any other MCP client — point it at `https://search.levirge.com/mcp`. It answers a standard OAuth
 challenge, so clients that speak MCP authorization discover sign-in on their own; no token to paste.
 
+## Update
+
+`plugin install` won't upgrade, and the desktop "Update" button stays greyed out until the app's
+marketplace cache is refreshed (the dialog has no refresh button). From the CLI — it shares the same
+store as the desktop app:
+
+```bash
+claude plugin marketplace update levirge-search
+claude plugin update search@levirge-search
+```
+
+Then restart the client — the plugin registry and MCP tool schemas are cached at startup, so new
+commands and tool params don't appear until then.
+
 ## What you get
 
 - **Search that isn't a summary** — `search` runs SearXNG across engines and returns real result
