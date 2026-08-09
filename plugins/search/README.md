@@ -27,10 +27,6 @@ claude plugin marketplace update levirge-search
 claude plugin update search@levirge-search
 ```
 
-**Desktop "Update" button greyed out?** It compares against the app's cached marketplace catalog,
-which never refreshes itself, and the dialog has no refresh button. The two commands above fix it —
-the CLI shares the same store as the desktop app — then restart.
-
 Restart afterwards. The restart is also what re-pulls the MCP tool list: `.mcp.json` is only a
 pointer at the server; tool schemas are fetched at connect time and cached for the life of the
 connection, so a server-side tool change stays invisible until the client reconnects.
@@ -49,16 +45,16 @@ On Codex, bump the version and reinstall, then open a **new** task — refreshed
 
 ## Tools
 
-| Tool               | Reads/writes          | Notes                                                              |
-| ------------------ | --------------------- | ------------------------------------------------------------------ |
-| `search`           | read-only, open-world | SearXNG across engines; returns `[{title, url, content}]`          |
-| `fetch`            | read-only, open-world | any URL, including API endpoints; auto-escalates to stealth        |
-| `fetch_async`      | queues work           | up to 200 URLs, paced per-domain                                   |
+| Tool               | Reads/writes          | Notes                                                                            |
+| ------------------ | --------------------- | -------------------------------------------------------------------------------- |
+| `search`           | read-only, open-world | SearXNG across engines; returns `[{title, url, content}]`                        |
+| `fetch`            | read-only, open-world | any URL, including API endpoints; auto-escalates to stealth                      |
+| `fetch_async`      | queues work           | up to 200 URLs, paced per-domain                                                 |
 | `fetch_results`    | read-only             | collect what `fetch_async` queued; `select`/`schema`/`max_bytes` shape the batch |
-| `stealth_list`     | read-only             | domains known to need the stealth browser                          |
-| `stealth_failures` | read-only             | domains where stealth itself was blocked — the investigation queue |
-| `stealth_add`      | write, idempotent     | mark a domain as stealth-required                                  |
-| `stealth_remove`   | destructive           | drop a domain so it routes direct again                            |
+| `stealth_list`     | read-only             | domains known to need the stealth browser                                        |
+| `stealth_failures` | read-only             | domains where stealth itself was blocked — the investigation queue               |
+| `stealth_add`      | write, idempotent     | mark a domain as stealth-required                                                |
+| `stealth_remove`   | destructive           | drop a domain so it routes direct again                                          |
 
 Every tool carries MCP annotations, so a host can auto-approve the read-only ones and gate
 `stealth_remove` behind confirmation.
