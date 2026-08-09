@@ -50,7 +50,7 @@ On Codex, bump the version and reinstall, then open a **new** task — refreshed
 | `search`           | read-only, open-world | SearXNG across engines; returns `[{title, url, content}]`          |
 | `fetch`            | read-only, open-world | any URL, including API endpoints; auto-escalates to stealth        |
 | `fetch_async`      | queues work           | up to 200 URLs, paced per-domain                                   |
-| `fetch_results`    | read-only             | collect what `fetch_async` queued                                  |
+| `fetch_results`    | read-only             | collect what `fetch_async` queued; `select`/`schema`/`max_bytes` shape the batch |
 | `stealth_list`     | read-only             | domains known to need the stealth browser                          |
 | `stealth_failures` | read-only             | domains where stealth itself was blocked — the investigation queue |
 | `stealth_add`      | write, idempotent     | mark a domain as stealth-required                                  |
