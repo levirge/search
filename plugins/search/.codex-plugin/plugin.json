@@ -1,6 +1,6 @@
 {
     "name": "search",
-    "version": "0.8.8",
+    "version": "0.8.9",
     "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
