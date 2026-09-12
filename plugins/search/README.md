@@ -51,7 +51,7 @@ On Codex, bump the version and reinstall, then open a **new** task — refreshed
 
 | Tool               | Reads/writes          | Notes                                                                            |
 | ------------------ | --------------------- | -------------------------------------------------------------------------------- |
-| `search`           | read-only, open-world | SearXNG across engines; returns `[{title, url, content}]`                        |
+| `search`           | read-only, open-world | SearXNG                                                                          |
 | `fetch`            | read-only, open-world | any URL, including API endpoints; auto-escalates to stealth                      |
 | `fetch_async`      | queues work           | up to 200 URLs, paced per-domain                                                 |
 | `fetch_results`    | read-only             | collect what `fetch_async` queued; `select`/`schema`/`max_bytes` shape the batch |
