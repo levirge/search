@@ -3,8 +3,7 @@ description: Research a topic — multi-query search, fetch top hits, synthesize
 argument-hint: <topic…>
 ---
 
-Research **$ARGUMENTS** using the Levirge Search MCP server (tools `search` and `fetch` — e.g.
-`mcp__search__search`; adjust the prefix to however the server is aliased in this session).
+Research **$ARGUMENTS** using the Levirge Search MCP server (its `search` and `fetch` tools).
 
 1. Run 2–3 `search` calls with distinct query phrasings of the topic (the literal phrase, a question
    form, and a narrower/technical variant).

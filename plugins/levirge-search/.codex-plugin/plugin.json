@@ -1,11 +1,12 @@
 {
-    "name": "search",
-    "version": "0.9.1",
+    "name": "levirge-search",
+    "version": "0.10.0",
     "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",
         "url": "https://levirge.com"
     },
+    "license": "MIT",
     "homepage": "https://search.levirge.com",
     "repository": "https://github.com/levirge/search",
     "keywords": [

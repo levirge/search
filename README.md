@@ -5,7 +5,7 @@
   </picture>
 </p>
 
-[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Fsearch%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](plugins/search/.codex-plugin/plugin.json)
+[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Flevirge-search%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](plugins/levirge-search/.codex-plugin/plugin.json)
 
 # Levirge Search — web research your agent can actually reach
 
@@ -22,7 +22,7 @@ Claude Code:
 
 ```bash
 claude plugin marketplace add levirge/search
-claude plugin install search@levirge-search
+claude plugin install levirge-search@levirge-search
 ```
 
 Then run `/mcp` in a session and sign in.
@@ -44,7 +44,7 @@ store as the desktop app:
 
 ```bash
 claude plugin marketplace update levirge-search
-claude plugin update search@levirge-search
+claude plugin update levirge-search@levirge-search
 ```
 
 Then restart the client — the plugin registry and MCP tool schemas are cached at startup, so new
@@ -59,7 +59,7 @@ commands and tool params don't appear until then.
 - **Background scans** — `fetch_async` queues up to 200 URLs through the same routing and paces them
   per-domain; collect with `fetch_results` instead of blocking.
 - **A stealth registry that learns** — domains that needed escalation are remembered per tenant, so
-  the second visit skips the retry (`/search:stealth`).
+  the second visit skips the retry (`/levirge-search:stealth`).
 - **A failure queue worth reading** — `stealth_failures` lists domains where the stealth browser
   itself got blocked, including regressions on domains that used to work.
 - **A skill that fires on refusal** — `web-fetch-fallback` teaches the agent to reach for this when
@@ -67,14 +67,14 @@ commands and tool params don't appear until then.
 
 ## Commands
 
-| Command            | Does                                                            |
-| ------------------ | --------------------------------------------------------------- |
-| `/search:research` | Multi-query search, fetch the top hits, synthesize with sources |
-| `/search:fetch`    | Fetch one URL via routed fetch and summarize it                 |
-| `/search:stealth`  | List stealth-required domains, or register one                  |
+| Command                    | Does                                                            |
+| -------------------------- | --------------------------------------------------------------- |
+| `/levirge-search:research` | Multi-query search, fetch the top hits, synthesize with sources |
+| `/levirge-search:fetch`    | Fetch one URL via routed fetch and summarize it                 |
+| `/levirge-search:stealth`  | List stealth-required domains, or register one                  |
 
 ## Links
 
 - **App / sign in:** <https://search.levirge.com>
 - **Levirge:** <https://levirge.com>
-- **Plugin reference:** [plugins/search/README.md](plugins/search/README.md)
+- **Plugin reference:** [plugins/levirge-search/README.md](plugins/levirge-search/README.md)

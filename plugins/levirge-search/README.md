@@ -1,16 +1,17 @@
 # Levirge Search plugin
 
-[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Fsearch%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](.codex-plugin/plugin.json)
+[![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Flevirge-search%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](.codex-plugin/plugin.json)
 
 Slash commands and a skill over the [Levirge Search](https://search.levirge.com) MCP server: web
 search via SearXNG, and a routed fetch that escalates to a stealth browser for sites that block
-ordinary crawling. Commands install as `/search:research`, `/search:fetch`, `/search:stealth`.
+ordinary crawling. Commands install as `/levirge-search:research`, `/levirge-search:fetch`,
+`/levirge-search:stealth`.
 
 ## Install
 
 ```sh
 claude plugin marketplace add levirge/search
-claude plugin install search@levirge-search
+claude plugin install levirge-search@levirge-search
 ```
 
 Then restart the client. The desktop "Add marketplace" dialog accepts `levirge/search` too — it only
@@ -24,7 +25,7 @@ installed" and exits. To move to a newer version:
 
 ```sh
 claude plugin marketplace update levirge-search
-claude plugin update search@levirge-search
+claude plugin update levirge-search@levirge-search
 ```
 
 **Desktop "Update" button greyed out?** It compares against the app's cached marketplace catalog,
@@ -38,13 +39,23 @@ connection, so a server-side tool change stays invisible until the client reconn
 On Codex, bump the version and reinstall, then open a **new** task — refreshed `interface` metadata
 (name, logo, icon) does not appear in an already-running one.
 
+**Upgrading from `search@levirge-search` (0.9.x)?** The plugin was renamed to `levirge-search` in
+0.10.0, so `plugin update` won't find it. Reinstall, and the commands move from `/search:*` to
+`/levirge-search:*`:
+
+```sh
+claude plugin uninstall search@levirge-search
+claude plugin marketplace update levirge-search
+claude plugin install levirge-search@levirge-search
+```
+
 ## What's in it
 
 |                            |                                                                                              |
 | -------------------------- | -------------------------------------------------------------------------------------------- |
-| `/search:research`         | multi-query search, fetch top hits, synthesise with sources                                  |
-| `/search:fetch`            | routed fetch of one URL (auto-stealth) and summarise                                         |
-| `/search:stealth`          | list or register stealth-required domains                                                    |
+| `/levirge-search:research` | multi-query search, fetch top hits, synthesise with sources                                  |
+| `/levirge-search:fetch`    | routed fetch of one URL (auto-stealth) and summarise                                         |
+| `/levirge-search:stealth`  | list or register stealth-required domains                                                    |
 | `web-fetch-fallback` skill | when a URL fetch is refused, escalate to the stealth fetch instead of falling back to search |
 
 ## Tools
@@ -83,6 +94,22 @@ The plugin ships four manifests so it installs cleanly across harnesses:
 `version` is duplicated across the three `plugin.json` files — bump all of them together. The
 version badge above reads the `.codex-plugin` copy live from `main`, so it never goes stale, but it
 also won't warn you if the three drift apart.
+
+## Privacy
+
+The plugin talks to two Levirge endpoints and nothing else:
+
+- `https://search.levirge.com/mcp` — the MCP server. It receives your search queries and the URLs
+  you fetch, plus the `select`/`schema` options you pass. It runs the searches through SearXNG and
+  requests the URLs from their sites (via a stealth browser when a site blocks crawling).
+- `https://auth.levirge.com` — OAuth sign-in for your Levirge account.
+
+See the [Privacy policy](https://levirge.com/privacy) for what is stored and for how long.
+
+## License
+
+The plugin files in this folder are [MIT](LICENSE) licensed. The Levirge Search service they connect
+to is not covered by this licence.
 
 ## Source
 

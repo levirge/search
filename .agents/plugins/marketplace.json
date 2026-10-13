@@ -5,11 +5,11 @@
     },
     "plugins": [
         {
-            "name": "search",
-            "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling. Invoke as /search:research, /search:fetch, /search:stealth.",
+            "name": "levirge-search",
+            "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling. Invoke as /levirge-search:research, /levirge-search:fetch, /levirge-search:stealth.",
             "source": {
                 "source": "local",
-                "path": "./plugins/search"
+                "path": "./plugins/levirge-search"
             },
             "policy": {
                 "installation": "AVAILABLE",

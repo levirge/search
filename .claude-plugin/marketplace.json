@@ -8,10 +8,10 @@
     },
     "plugins": [
         {
-            "name": "search",
+            "name": "levirge-search",
             "displayName": "Levirge Search",
-            "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling. Invoke as /search:research, /search:fetch, /search:stealth.",
-            "source": "./plugins/search",
+            "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling. Invoke as /levirge-search:research, /levirge-search:fetch, /levirge-search:stealth.",
+            "source": "./plugins/levirge-search",
             "category": "research",
             "homepage": "https://search.levirge.com",
             "repository": "https://github.com/levirge/search",
