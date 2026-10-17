@@ -6,7 +6,7 @@
     "plugins": [
         {
             "name": "levirge-search",
-            "description": "Unfiltered web search plus a fetch that escalates to a stealth browser when a site blocks crawling. Invoke as /levirge-search:research, /levirge-search:fetch, /levirge-search:stealth.",
+            "description": "Unfiltered web search plus a URL fetch where pages that need JavaScript or refuse plain requests are opened in a full browser. Invoke as /levirge-search:research, /levirge-search:fetch, /levirge-search:stealth.",
             "source": {
                 "source": "local",
                 "path": "./plugins/levirge-search"
@@ -20,5 +20,5 @@
             "repository": "https://github.com/levirge/search"
         }
     ],
-    "description": "Web search and bot-resistant fetch for AI agents — the Levirge Search MCP server."
+    "description": "Web search and URL fetch for AI agents, with a full-browser fallback — the Levirge Search MCP server."
 }

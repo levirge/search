@@ -3,8 +3,8 @@
 [![version](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Flevirge%2Fsearch%2Fmain%2Fplugins%2Flevirge-search%2F.codex-plugin%2Fplugin.json&query=%24.version&label=version&color=d99a3a)](.codex-plugin/plugin.json)
 
 Slash commands and a skill over the [Levirge Search](https://search.levirge.com) MCP server: web
-search via SearXNG, and a routed fetch that escalates to a stealth browser for sites that block
-ordinary crawling. Commands install as `/levirge-search:research`, `/levirge-search:fetch`,
+search via SearXNG, and a routed fetch where pages that need JavaScript or refuse plain requests are
+opened in a full browser. Commands install as `/levirge-search:research`, `/levirge-search:fetch`,
 `/levirge-search:stealth`.
 
 ## Install
@@ -101,7 +101,8 @@ The plugin talks to two Levirge endpoints and nothing else:
 
 - `https://search.levirge.com/mcp` — the MCP server. It receives your search queries and the URLs
   you fetch, plus the `select`/`schema` options you pass. It runs the searches through SearXNG and
-  requests the URLs from their sites (via a stealth browser when a site blocks crawling).
+  requests the URLs from their sites (in a full browser when a page needs JavaScript or refuses
+  plain requests).
 - `https://auth.levirge.com` — OAuth sign-in for your Levirge account.
 
 See the [Privacy policy](https://levirge.com/privacy) for what is stored and for how long.
