@@ -1,7 +1,7 @@
 {
     "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
     "name": "levirge-search",
-    "version": "0.10.1",
+    "version": "0.10.2",
     "description": "Unfiltered web search plus a URL fetch where pages that need JavaScript or refuse plain requests are opened in a full browser — multi-query research, routed fetch, and stealth-registry management.",
     "author": {
         "name": "Levirge",

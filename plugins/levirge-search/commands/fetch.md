@@ -28,4 +28,7 @@ JSON or XML body is returned verbatim in its own content block, so it parses dir
 A YouTube watch/shorts/youtu.be URL returns the video's title, channel, description, and full
 timestamped transcript as markdown — summarize the transcript, don't dump it.
 
+A Reddit thread or subreddit URL returns the post and its comments (or the subreddit's newest posts)
+from a public archive: scores are as archived, so a post under ~3 days old shows ~1 point.
+
 If the fetch fails outright, report the error as-is — don't retry with made-up URL variants.
