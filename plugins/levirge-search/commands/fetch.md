@@ -31,4 +31,8 @@ timestamped transcript as markdown — summarize the transcript, don't dump it.
 A Reddit thread or subreddit URL returns the post and its comments (or the subreddit's newest posts)
 from a public archive: scores are as archived, so a post under ~3 days old shows ~1 point.
 
+A PDF URL returns the document's text as markdown, one `## Page N of T` section per page. For a long
+PDF, call with `schema: true` (page list) or `select: ["Page 7 of"]` / a keyword instead of reading
+every page. A scanned PDF has no text layer and says so.
+
 If the fetch fails outright, report the error as-is — don't retry with made-up URL variants.
